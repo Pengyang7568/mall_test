@@ -1,0 +1,30 @@
+{
+  "name": "mall_test",
+  "version": "1.0.0",
+  "description": "商城项目练手",
+  "main": "app.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pengyang7568/mall_test.git"
+  },
+  "author": "fabrice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pengyang7568/mall_test/issues"
+  },
+  "homepage": "https://github.com/Pengyang7568/mall_test#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5"
+  }
+}
