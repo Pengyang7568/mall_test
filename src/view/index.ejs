@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= require('./layout/head-common.html')%>
+    <title>
+      <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+  <%= require('./layout/header.html')%>
+  <div class="page-warp w">
+    <%= require('./layout/nav-side.html')%>
+    <div class="content with-nav">
+      test
+    </div>
+  </div>
+  <%= require('./layout/foot-common.html')%>
+</body>
+
+</html>
