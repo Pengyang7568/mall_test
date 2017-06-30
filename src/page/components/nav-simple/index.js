@@ -1,1 +1,1 @@
-require('./index.css')
+require('./style.css')

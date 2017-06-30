@@ -21,12 +21,15 @@ img{
 label{
   cursor: pointer;
 }
+input{
+  outline: none;
+}
 input[type='checkbox']{
   cursor: pointer;
 }
 
 /*
-顶宽布局
+定宽布局
 */
 
 .w{
@@ -39,6 +42,30 @@ input[type='checkbox']{
 /*
 全局通用样式
 */
+
+/*
+pannel
+*/
+.pannel{
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+
+}
+
+.pannel .pannel-title{
+  padding: 10px;
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.pannel .pannel-body{
+  padding: 10px;
+  overflow: hidden;
+}
+
 
 /*隐藏类*/
 .hide{

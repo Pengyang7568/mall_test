@@ -1,4 +1,4 @@
-require('./index.css')
+require('./style.css')
 
 var _util = require('util/utils')
 //通用页面头部

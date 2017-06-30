@@ -1,5 +1,5 @@
 require('page/components/nav-simple/index')
-require('./index.css')
+require('./style.css')
 var _utils = require('util/utils.js')
 
 $(function(){

@@ -1,4 +1,4 @@
-require('./index.css')
+require('./style.css')
 var _utils = require('util/utils')
 var _user = require('service/user-service')
 var _cart = require('service/cart-service')
@@ -17,7 +17,7 @@ var nav = {
     })
     //注册点击事件
     $('.js-register').click(function(){
-      window.location.href = './register.html'
+      window.location.href = './user-register.html'
     })
     //退出点击事件
     $('.js-logout').click(function(){

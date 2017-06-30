@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%= require('./layout/head-common.html')%>
+    <title>
+      <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+  <%= require('./layout/nav.html')%>
+    <%= require('./layout/header.html')%>
+      <div class="crumb">
+        <div class="w">
+          <div class="crumb-con">
+            <a href="./index.html" class="link">Mall_test</a>
+            <span>/</span>
+            <span class="link-text"> <%=htmlWebpackPlugin.options.title%></span>
+          </div>
+        </div>
+      </div>
+      <div class="page-warp w">
+        <%= require('./layout/nav-side.html')%>
+          <div class="content with-nav">
+            <div class="pannel">
+              <div class="pannel-title">修改密码</div>
+              <div class="pannel-body">
+                <div class="user-info">
+                  <div class="form-line">
+                    <span class="label">原密码：</span>
+                    <input type="password" class="input" id="password" autocomplete="off">
+                  </div>
+                  <div class="form-line">
+                    <span class="label">新密码：</span>
+                    <input type="password" class="input" id="password-new" autocomplete="off" >
+                  </div>
+                  <div class="form-line">
+                    <span class="label">确认密码：</span>
+                    <input type="password" class="input" id="password-confirm" autocomplete="off">
+                  </div>
+                  <span class="btn btn-sumbit">提交</span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <%= require('./layout/foot-common.html')%>
+</body>
+
+</html>
