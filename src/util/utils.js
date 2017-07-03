@@ -46,10 +46,12 @@ var _utils = {
   },
   //成功提示
   successTips: function(msg){
-    alert(msg || '操作成功')
+    // alert(msg || '操作成功')
+    $('.page-warp').html(msg)
   },
   errorTips: function(msg){
-    alert(msg || '操作失败')
+    // alert(msg || '操作失败')
+    $('.page-warp').html(msg)
   },
   validate: function(value,type){
     var value = $.trim(value)
