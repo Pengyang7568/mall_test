@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%= require('./layout/head-common.html')%>
+    <title>
+      <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+  <%= require('./layout/nav.html')%>
+    <%= require('./layout/header.html')%>
+      <div class="crumb">
+        <div class="w">
+          <div class="crumb-con">
+            <a href="./index.html" class="link">Mall_test</a>
+            <span>/</span>
+            <span class="link-text"> <%=htmlWebpackPlugin.options.title%></span>
+          </div>
+        </div>
+      </div>
+      <div class="page-warp w">
+        <ul class="sort-con">
+          <li class="sort-item" data-type="default">默认排序</li>
+          <li class="sort-item active" data-type="price">
+            <span>价格</span>
+            <i class="fa fa-sort-asc"></i>
+            <i class="fa fa-sort-desc"></i>
+          </li>
+        </ul>
+        <!--list 容器-->
+        <ul class="p-list-con">
+
+        </ul>
+        <!--分页容器-->
+        <div class="pagination-con">
+
+        </div>
+
+
+      </div>
+      <%= require('./layout/foot-common.html')%>
+</body>
+
+</html>

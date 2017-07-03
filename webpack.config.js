@@ -18,6 +18,8 @@ module.exports = {
   entry: {
     'common': './src/page/common/index.js',
     'index': './src/page/index/index.js',
+    'list': './src/page/list/index.js',
+    'detail': './src/page/detail/index.js',
     'user-login': './src/page/user-login/index.js',
     'user-register': './src/page/user-register/index.js',
     'user-center': './src/page/user-center/index.js',
@@ -77,6 +79,8 @@ module.exports = {
     }),
     new extractTextWebpackPlugin('css/[name]-[hash].css'),
     new htmlWebpackPlugin(getHtmlConfig('index','首页')),
+    new htmlWebpackPlugin(getHtmlConfig('list','商品列表页')),
+    new htmlWebpackPlugin(getHtmlConfig('detail','商品详情页')),
     new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
     new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),
     new htmlWebpackPlugin(getHtmlConfig('user-center','个人中心')),
