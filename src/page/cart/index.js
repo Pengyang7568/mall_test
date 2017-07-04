@@ -9,6 +9,7 @@ var template = require('./template.html')
 //page 逻辑部分
 var page = {
   data: {
+    carInfo: null
 
   },
   init: function () {
@@ -144,7 +145,7 @@ var page = {
   //渲染购物车
   renderCart: function (data) {
     this.filter(data)
-    this.data.carInfo = data
+    this.data.cartInfo = data
     var cartHtml = _utils.renderHtml(template, data)
     $('.page-warp').html(cartHtml)
     nav.loaderCartCount()

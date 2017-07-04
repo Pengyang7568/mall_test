@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%= require('./layout/head-common.html')%>
+    <title>
+      <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+  <%= require('./layout/nav.html')%>
+    <%= require('./layout/header.html')%>
+      <div class="crumb">
+        <div class="w">
+          <div class="crumb-con">
+            <a href="./index.html" class="link">Mall_test</a>
+            <span>/</span>
+            <span class="link-text"> <%=htmlWebpackPlugin.options.title%></span>
+          </div>
+        </div>
+      </div>
+      <div class="page-warp w">
+        <div class="pannel">
+          <h1 class="pannel-title">收货地址</h1>
+          <div class="pannel-body address-con">
+
+          </div>
+        </div>
+        <div class="pannel">
+          <h1 class="pannel-title">商品清单</h1>
+          <div class="pannel-body product-con">
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-warp">
+        
+      </div>
+      <%= require('./layout/foot-common.html')%>
+</body>
+
+</html>

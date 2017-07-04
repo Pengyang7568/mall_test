@@ -7,8 +7,14 @@ var getHtmlConfig = function (name,title) {
   return {
     title: title,
     template: './src/view/' + name + '.ejs',
+    favicon: './favicon.ico',
     filename: 'view/' + name + '.html',
     inject: true,
+    minify:{
+      removeTagWhitespace: true,
+      collapseWhitespace: true
+
+    },
     chunks: ['common', name]
   }
 }
@@ -21,6 +27,10 @@ module.exports = {
     'list': './src/page/list/index.js',
     'detail': './src/page/detail/index.js',
     'cart': './src/page/cart/index.js',
+    'order-confirm': './src/page/order-confirm/index.js',
+    'order-list': './src/page/order-list/index.js',
+    'order-detail': './src/page/order-detail/index.js',
+    'order-payment': './src/page/order-payment/index.js',
     'user-login': './src/page/user-login/index.js',
     'user-register': './src/page/user-register/index.js',
     'user-center': './src/page/user-center/index.js',
@@ -31,7 +41,7 @@ module.exports = {
   },
   output: {
     path: './dist',
-    publicPath: '/dist',
+    publicPath: '/dist/',
     filename: 'js/[name]-[hash].js'
   },
   externals: {
@@ -83,6 +93,10 @@ module.exports = {
     new htmlWebpackPlugin(getHtmlConfig('list','商品列表页')),
     new htmlWebpackPlugin(getHtmlConfig('detail','商品详情页')),
     new htmlWebpackPlugin(getHtmlConfig('cart','购物车')),
+    new htmlWebpackPlugin(getHtmlConfig('order-confirm','订单确认页')),
+    new htmlWebpackPlugin(getHtmlConfig('order-list','订单列表')),
+    new htmlWebpackPlugin(getHtmlConfig('order-detail','订单详情')),
+    new htmlWebpackPlugin(getHtmlConfig('order-payment','支付页面')),
     new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
     new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),
     new htmlWebpackPlugin(getHtmlConfig('user-center','个人中心')),
