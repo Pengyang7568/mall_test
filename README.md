@@ -89,3 +89,20 @@ var getHtmlConfig = function (name,title) {
   }
 }
 ```
+#### NODE_ENV(环境变量)
+
+```
+//环境变量
+var NODE_ENV = process.env.NODE_ENV || 'dev'
+if(NODE_ENV = 'dev'){
+  var staticPath = '/dist/'
+}
+
+if(NODE_ENV = 'product'){
+  var staticPath = '//s.pengyang7568.com/dist/'
+}
+
+//对应的script脚本(windows)
+"dev_build": "set NODE_ENV=dev && webpack",
+"product_build": "set NODE_ENV=product && webpack -p"
+```

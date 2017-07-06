@@ -2,6 +2,15 @@ var webpack = require('webpack')
 var extractTextWebpackPlugin = require('extract-text-webpack-plugin')
 var htmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
+//环境变量
+var NODE_ENV = process.env.NODE_ENV || 'dev'
+if(NODE_ENV = 'dev'){
+  var staticPath = '/dist/'
+}
+
+if(NODE_ENV = 'product'){
+  var staticPath = '//s.pengyang7568.com/dist/'
+}
 //html-webpack-plugin 参数
 var getHtmlConfig = function (name,title) {
   return {
@@ -41,7 +50,7 @@ module.exports = {
   },
   output: {
     path: './dist',
-    publicPath: '/dist/',
+    publicPath: staticPath,
     filename: 'js/[name]-[hash].js'
   },
   externals: {
