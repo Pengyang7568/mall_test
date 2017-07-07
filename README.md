@@ -1,9 +1,5 @@
 # mall_test_v1.0
 
-### 项目架构
-
-![image](http://oqwtih17f.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.png)
-
 ### 技术栈
 
 webapck@1.15.0 + jquery@1.12.3 + font-awesome@4.7.0 + mustache + unslide
@@ -94,15 +90,15 @@ var getHtmlConfig = function (name,title) {
 ```
 //环境变量
 var NODE_ENV = process.env.NODE_ENV || 'dev'
-if(NODE_ENV = 'dev'){
+if(NODE_ENV === 'dev'){
   var staticPath = '/dist/'
 }
 
-if(NODE_ENV = 'product'){
+if(NODE_ENV === 'product'){
   var staticPath = '//s.pengyang7568.com/dist/'
 }
 
 //对应的script脚本(windows)
-"dev_build": "set NODE_ENV=dev && webpack",
-"product_build": "set NODE_ENV=product && webpack -p"
+"dev_build": "set NODE_ENV=dev&&webpack",
+"product_build": "set NODE_ENV=product&&webpack -p"
 ```

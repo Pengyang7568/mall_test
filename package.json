@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --inline",
-    "dev_build": "set NODE_ENV=dev && webpack",
-    "product_build": "set NODE_ENV=product && webpack -p"
+    "dev_build": "set webpack_ENV=dev&&webpack",
+    "product_build": "set webpack_ENV=product&&webpack -p"
   },
   "repository": {
     "type": "git",

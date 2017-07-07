@@ -3,23 +3,27 @@ var extractTextWebpackPlugin = require('extract-text-webpack-plugin')
 var htmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
 //环境变量
-var NODE_ENV = process.env.NODE_ENV || 'dev'
-if(NODE_ENV = 'dev'){
-  var staticPath = '/dist/'
+var webpack_ENV = process.env.webpack_ENV || 'dev',
+    staticPath = ''
+if (process.env.webpack_ENV == 'dev') {
+  staticPath = '/dist/'
 }
 
-if(NODE_ENV = 'product'){
-  var staticPath = '//s.pengyang7568.com/dist/'
+if (process.env.webpack_ENV == 'product') {
+  staticPath = '//s.pengyang7568.com/dist/'
 }
+console.log(webpack_ENV)
+console.log(webpack_ENV === 'product')
+console.log(staticPath)
 //html-webpack-plugin 参数
-var getHtmlConfig = function (name,title) {
+var getHtmlConfig = function (name, title) {
   return {
     title: title,
     template: './src/view/' + name + '.ejs',
     favicon: './favicon.ico',
     filename: 'view/' + name + '.html',
     inject: true,
-    minify:{
+    minify: {
       removeTagWhitespace: true,
       collapseWhitespace: true
 
@@ -62,7 +66,7 @@ module.exports = {
       page: path.resolve(__dirname, './src/page'),
       service: path.resolve(__dirname, './src/service'),
       image: path.resolve(__dirname, './src/image'),
-      node_modules: path.resolve(__dirname,'./node_modules')
+      node_modules: path.resolve(__dirname, './node_modules')
     }
   },
   module: {
@@ -98,21 +102,21 @@ module.exports = {
       filename: 'common/commons.js'
     }),
     new extractTextWebpackPlugin('css/[name]-[hash].css'),
-    new htmlWebpackPlugin(getHtmlConfig('index','首页')),
-    new htmlWebpackPlugin(getHtmlConfig('list','商品列表页')),
-    new htmlWebpackPlugin(getHtmlConfig('detail','商品详情页')),
-    new htmlWebpackPlugin(getHtmlConfig('cart','购物车')),
-    new htmlWebpackPlugin(getHtmlConfig('order-confirm','订单确认页')),
-    new htmlWebpackPlugin(getHtmlConfig('order-list','订单列表')),
-    new htmlWebpackPlugin(getHtmlConfig('order-detail','订单详情')),
-    new htmlWebpackPlugin(getHtmlConfig('order-payment','支付页面')),
-    new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
-    new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),
-    new htmlWebpackPlugin(getHtmlConfig('user-center','个人中心')),
-    new htmlWebpackPlugin(getHtmlConfig('user-center-update','修改个人信息')),
-    new htmlWebpackPlugin(getHtmlConfig('user-psw-reset','找回密码')),
-    new htmlWebpackPlugin(getHtmlConfig('user-psw-update','修改密码')),
-    new htmlWebpackPlugin(getHtmlConfig('result','操作结果'))
+    new htmlWebpackPlugin(getHtmlConfig('index', '首页')),
+    new htmlWebpackPlugin(getHtmlConfig('list', '商品列表页')),
+    new htmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
+    new htmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
+    new htmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认页')),
+    new htmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
+    new htmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),
+    new htmlWebpackPlugin(getHtmlConfig('order-payment', '支付页面')),
+    new htmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+    new htmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+    new htmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
+    new htmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),
+    new htmlWebpackPlugin(getHtmlConfig('user-psw-reset', '找回密码')),
+    new htmlWebpackPlugin(getHtmlConfig('user-psw-update', '修改密码')),
+    new htmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
   ],
   //webpack-dev-server config
   devServer: {
