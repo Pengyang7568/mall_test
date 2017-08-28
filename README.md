@@ -6,7 +6,7 @@ webapck@1.15.0 + jquery@1.12.3 + font-awesome@4.7.0 + mustache + unslide
 
 
 
-### 项目文件目录安排
+### 项目文件目录
 
 ```
 │─ .gitignore
@@ -102,3 +102,118 @@ if(NODE_ENV === 'product'){
 "dev_build": "set NODE_ENV=dev&&webpack",
 "product_build": "set NODE_ENV=product&&webpack -p"
 ```
+
+#### 分页组件
+|上一页| 1 2 3 =4= 5 6 7 |下一页| 4/9
+```
+// 列表参数
+listParam: {
+  keyword: _utils.getUrlParam('keyword') || '',
+  categoryId: _utils.getUrlParam('categoryId') || '',
+  orderBy: _utils.getUrlParam('orderBy') || 'default',
+  pageNum: _utils.getUrlParam('pageNum') || 1,
+  pageSize: _utils.getUrlParam('pageSize') || 20
+    }
+// 分页参数
+pageInfo = {
+  hasPreviousPage : Boolean,
+  prePage: Number,
+  hasNextPage : Boolean,
+  nextPage: Number,
+  PageNum: Number,
+  pages : Number
+}
+// 组件
+loadPagination : function(pageInfo) {
+  this.pagination ? '' : (this.pagination = new Pagination())
+  this.pagination.render($.extend({}, pageInfo, {
+    container: $('.pagination-con'),
+    onSelectPage: function(pageNum) {
+        _this.data.listParam.pageNum = pageNum
+        _this.loadList()
+    }
+  }))
+}
+// utils/pagination
+require('./style.css)
+var template = require('./template.html)
+var _utils = require('util/utils.js)
+
+var Pagination = function() {
+  var _this = this
+  this.defaultOptions = {
+    // jquery container
+    container : null,
+    // current page
+    pageNum: 1,
+    // 当前页前后显示的页码数
+    pageRange: 3,
+    //callback
+    onSelectPage: null
+  }
+  //  事件的处理
+  $(document).on('click', '.pg-item', function() {
+    var $this = $(this)
+    //  active 和 disabled 按钮点击，不做处理
+    if ($this.hasClass('active') || $this.hasClass('disabled')) {
+      return
+    }
+    typeof _this.options.onSelectPage === 'function' ? 
+      _this.opyions.onSelectPage($this.data('value)) : null
+  })
+}
+// 渲染分页组件
+Pagination.prototype.render = function(userOptions) {
+  // 合并option
+  this.options = $.extend({}, this,defaultOption, userOption)
+  // container 判断
+  if (!(options.container instanceof jQuery)) {
+      return
+  }
+  // 判读是否只有1页
+  if (this.option.pages <= 1) {
+    return
+  }
+  // 渲染分页内容
+  this.option.container.html(this.getPaginationHtml())
+}
+
+// 获取分页的html
+Pagination.prototype.getPaginationHtml = function() {
+  var html = '',
+      options = this.options,
+      pageArray = [],
+      //  起始页
+      start = options.pageNum - options.pageRange > 0 ?
+        options.pageNum - options.pageRange : 1,
+      end = options.pageNum + options.pageRange > options.pages ? 
+        pages : options.pageNum + options.pageRange
+  //  上一页按钮的数据
+  pageArray.push({
+    name: '上一页',
+    value: options.prePage,
+    disabled: !options.hasPreviousPage
+  })
+  //  数字按钮的处理
+  for (var i = start; i <= end; i++) {
+    pageArray.push({
+      name: i,
+      value: i,
+      active: (i === options.pageNum)
+    })
+  }
+  //  下一页按钮的数据
+  pageArray.push({
+    name: '下一页',
+    value: options.nextPage,
+    disabled: !options.hasNextPage
+  })
+  //  html渲染
+  html = _utils.renderHtml(template, {
+    pageArray : pageArray,
+    pageNum : options.pageNum,
+    pages: options.pages
+  })
+  return html
+}
+

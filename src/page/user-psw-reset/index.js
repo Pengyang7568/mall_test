@@ -37,7 +37,6 @@ var page = {
           _this.data.username = username
           _this.data.question = res
           _this.loadStepQuestion()
-
         }, function (errMsg) {
           formError.show(errMsg)
         })
@@ -61,7 +60,6 @@ var page = {
           _this.data.answer = answer
           _this.data.token = res
           _this.loadStepPassword()
-
         }, function (errMsg) {
           formError.show(errMsg)
         })

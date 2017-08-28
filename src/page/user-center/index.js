@@ -27,7 +27,6 @@ var page = {
       $('.pannel-body').html(userHtml)
     }, function (errMsg) {
       _utils.errorTips(errMsg)
-
     })
 
   }

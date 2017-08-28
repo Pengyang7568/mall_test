@@ -12,9 +12,7 @@ if (process.env.webpack_ENV == 'dev') {
 if (process.env.webpack_ENV == 'product') {
   staticPath = '//s.pengyang7568.com/dist/'
 }
-console.log(webpack_ENV)
-console.log(webpack_ENV === 'product')
-console.log(staticPath)
+
 //html-webpack-plugin 参数
 var getHtmlConfig = function (name, title) {
   return {

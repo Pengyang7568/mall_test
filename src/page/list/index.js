@@ -18,7 +18,6 @@ var page = {
       pageNum: _utils.getUrlParam('pageNum') || 1,
       pageSize: _utils.getUrlParam('pageSize') || 20
     }
-
   },
   init: function () {
     this.onLoad()
